@@ -3,7 +3,7 @@ import React from "react";
 
 function App() {
 	const [data, setData] = React.useState();
-	const url = "agile-oasis-32496.herokuapp.com";
+	const url = "http://agile-oasis-32496.herokuapp.com";
 
 	const GetData = () => {
 		axios.get(url).then((res) => {
