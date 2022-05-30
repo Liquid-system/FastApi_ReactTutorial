@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import React from "react";
 
 function App() {
+  const [data, setData] = React.useState();
+  const url = "http://127.0.0.1:8000";
+
+  const GetData = () => {
+    axios.get(url).then((res) => {
+      setData(res.data);
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>ここに処理を書いていきます</div>
+      {data ? (
+        <div>{data.Hello}</div>
+      ) : (
+        <button onClick={GetData} className="button">データを所得</button>
+      )}
     </div>
   );
 }
